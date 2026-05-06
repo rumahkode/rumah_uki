@@ -561,6 +561,107 @@
     opacity: 1;
     transform: none;
   }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none; flex-direction: column; justify-content: center;
+    gap: 5px; cursor: pointer; padding: 6px; background: none;
+    border: none; z-index: 110;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: var(--gold); border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  .nav-mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0;
+    background: rgba(6,8,16,0.98); backdrop-filter: blur(20px);
+    flex-direction: column; padding: 1.2rem 1.5rem 2rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2); z-index: 99;
+    animation: slideDown 0.2s ease;
+  }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a {
+    color: var(--muted); text-decoration: none;
+    font-size: 15px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 1rem 0;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    transition: color 0.25s;
+  }
+  .nav-mobile-menu a:last-child { border-bottom: none; }
+  .nav-mobile-menu a:hover, .nav-mobile-menu a.active { color: var(--gold); }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.2rem 0 1.5rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+
+    .hero { padding: 0 1.5rem; min-height: 100svh; }
+    .hero-shape { display: none; }
+    .hero-title { font-size: clamp(36px, 10vw, 60px); }
+    .hero-sub { font-size: 12px; letter-spacing: 0.18em; }
+    .hero-desc { font-size: 15px; max-width: 100%; }
+    .hero-eyebrow { font-size: 11px; }
+
+    .stats-inner { grid-template-columns: repeat(2,1fr); }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(10,14,26,0.12); }
+    .stat-item:nth-child(odd) { border-right: 1px solid rgba(10,14,26,0.12); }
+    .stat-num { font-size: 28px; }
+    .stat-label { font-size: 11px; }
+
+    section { padding: 3.5rem 1.5rem; }
+    .cards-header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .cards-grid { grid-template-columns: 1fr; gap: 2px; }
+    .section-tag { font-size: 11px; }
+    .section-title { font-size: clamp(24px,7vw,36px); }
+    .section-sub { font-size: 14px; max-width: 100%; }
+
+    .about-section { padding: 3.5rem 1.5rem; }
+    .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-box { padding: 2rem 1.5rem; }
+    .about-box::before { display: none; }
+    .pillar-text { font-size: 15px; }
+    .pillar-sub { font-size: 13px; }
+    .about-box-label { font-size: 11px; }
+
+    .news-section { padding: 3.5rem 1.5rem; }
+    .news-header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+    .news-grid { grid-template-columns: 1fr; }
+    .news-card.featured { grid-row: auto; }
+    .news-card.featured .news-title { font-size: 18px; }
+    .news-title { font-size: 15px; }
+    .news-excerpt { font-size: 14px; }
+    .news-tag { font-size: 11px; }
+
+    footer { padding: 3rem 1.5rem; }
+    .footer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .footer-bottom p { font-size: 12px; }
+
+    .scroll-hint { display: none; }
+    .card { padding: 2rem 1.5rem; }
+    .card-desc { font-size: 14px; }
+    .card-title { font-size: 15px; }
+
+    .btn-primary, .btn-outline { padding: 14px 26px; font-size: 12px; }
+    .hero-cta { flex-direction: column; }
+    .hero-cta .btn-primary, .hero-cta .btn-outline { text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(30px, 9vw, 48px); }
+    .nav-title { font-size: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -577,7 +678,16 @@
     <li><a href="#tentang">Tentang Kami</a></li>
     <li><a href="#informasi">Informasi</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#beranda">Beranda</a>
+  <a href="#layanan">Layanan</a>
+  <a href="#tentang">Tentang Kami</a>
+  <a href="#informasi">Informasi</a>
+</div>
 
 <!-- ── HERO ── -->
 <div class="hero" id="beranda">
@@ -826,6 +936,20 @@
 </footer>
 
 <script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
   // Intersection Observer for fade-in
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
