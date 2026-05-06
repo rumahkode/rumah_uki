@@ -13,7 +13,7 @@
   }
   html { scroll-behavior: smooth; }
   body { background: var(--navy); color: var(--white); font-family: 'Raleway', sans-serif; overflow-x: hidden; }
-
+ 
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -31,7 +31,7 @@
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-
+ 
   .page-hero {
     padding-top: 72px; min-height: 260px;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -49,7 +49,7 @@
   .breadcrumb span { color: var(--muted); font-size: 11px; }
   .page-title { font-family: 'Cinzel', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.8rem; }
   .page-divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem auto; }
-
+ 
   /* MENU STRIP */
   .menu-strip {
     background: var(--gold); padding: 2.5rem 4rem;
@@ -62,7 +62,7 @@
   .menu-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-width: 800px; margin: 0 auto;
   }
-
+ 
   .menu-btn {
     display: block; padding: 14px 20px; text-align: center;
     background: transparent; color: var(--navy);
@@ -77,10 +77,10 @@
     transform: translateY(-2px);
   }
   .menu-btn .btn-icon { font-size: 20px; display: block; margin-bottom: 6px; }
-
+ 
   /* CONTENT AREA */
   .content-area { max-width: 1100px; margin: 0 auto; padding: 5rem 4rem 6rem; }
-
+ 
   .section-tag {
     display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
     text-transform: uppercase; color: var(--gold);
@@ -94,12 +94,12 @@
     font-size: 15px; font-weight: 300; line-height: 1.85;
     color: var(--muted); max-width: 600px; margin-bottom: 3.5rem;
   }
-
+ 
   /* DOC CARDS */
   .doc-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
   }
-
+ 
   .doc-card {
     background: var(--navy2); padding: 2.2rem 1.8rem;
     text-decoration: none; color: inherit;
@@ -113,7 +113,7 @@
     transition: transform 0.35s;
   }
   .doc-card:hover::after { transform: scaleX(1); }
-
+ 
   .doc-icon {
     font-size: 32px; margin-bottom: 1.2rem; display: block;
   }
@@ -129,33 +129,33 @@
     font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--gold);
   }
-
+ 
   footer { background: #060810; border-top: 1px solid rgba(201,168,76,0.12); padding: 2rem 4rem; text-align: center; }
   footer p { font-size: 11px; color: rgba(248,245,238,0.25); letter-spacing: 0.08em; }
-
+ 
   .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: none; }
 </style>
 </head>
 <body>
-
+ 
 <nav>
-  <a class="nav-brand" href="index.html">
+  <a class="nav-brand" href="bea-cukai-nibung.html">
     <div class="nav-logo">BC</div>
     <div class="nav-title">Bea Cukai<br>Teluk Nibung</div>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Beranda</a></li>
+    <li><a href="bea-cukai-nibung.html">Beranda</a></li>
     <li><a href="lhk.html">Laporan Harta Kekayaan</a></li>
     <li><a href="pengelolaan-kinerja.html" class="active">Pengelolaan Kinerja</a></li>
     <li><a href="dialog-kinerja.html">Dialog Kinerja Organisasi</a></li>
   </ul>
 </nav>
-
+ 
 <div class="page-hero">
   <div class="page-hero-content">
     <div class="breadcrumb">
-      <a href="index.html">Beranda</a>
+      <a href="bea-cukai-nibung.html">Beranda</a>
       <span>/</span>
       <span style="color:var(--white)">Pengelolaan Kinerja</span>
     </div>
@@ -163,7 +163,7 @@
     <div class="page-divider"></div>
   </div>
 </div>
-
+ 
 <!-- QUICK ACCESS MENU -->
 <div class="menu-strip">
   <div class="menu-strip-label">Akses Cepat Dokumen</div>
@@ -194,7 +194,7 @@
     </a>
   </div>
 </div>
-
+ 
 <!-- CONTENT -->
 <div class="content-area">
   <div class="fade-in" style="margin-bottom: 3rem;">
@@ -205,58 +205,58 @@
       Kementerian Keuangan Tahun 2026. Pastikan seluruh dokumen telah dilengkapi sesuai tenggat waktu.
     </p>
   </div>
-
+ 
   <div class="doc-grid fade-in">
-
+ 
     <a class="doc-card" href="#" id="pk-iku">
       <span class="doc-icon">📌</span>
       <div class="doc-title">PK dan Manual IKU</div>
       <p class="doc-sub">Perjanjian Kinerja dan panduan Indikator Kinerja Utama untuk seluruh unit di lingkungan KPPBC TMP C Teluk Nibung.</p>
       <div class="doc-link">Buka Dokumen →</div>
     </a>
-
+ 
     <a class="doc-card" href="#" id="aturan">
       <span class="doc-icon">📜</span>
       <div class="doc-title">Aturan Manajemen Kinerja</div>
       <p class="doc-sub">Peraturan dan kebijakan manajemen kinerja pegawai sesuai ketentuan Kementerian Keuangan yang berlaku.</p>
       <div class="doc-link">Buka Dokumen →</div>
     </a>
-
+ 
     <a class="doc-card" href="#" id="matriks">
       <span class="doc-icon">🔲</span>
       <div class="doc-title">Matriks Penyelarasan</div>
       <p class="doc-sub">Matriks penyelarasan IKU antar unit kerja untuk memastikan keterkaitan dan kesinambungan capaian kinerja organisasi.</p>
       <div class="doc-link">Buka Dokumen →</div>
     </a>
-
+ 
     <a class="doc-card" href="#" id="ketentuan">
       <span class="doc-icon">📗</span>
       <div class="doc-title">Ketentuan Pengelolaan Kinerja (Pusat)</div>
       <p class="doc-sub">Regulasi dan pedoman teknis pengelolaan kinerja yang diterbitkan oleh Kantor Pusat Direktorat Jenderal Bea dan Cukai.</p>
       <div class="doc-link">Buka Dokumen →</div>
     </a>
-
+ 
     <a class="doc-card" href="#" id="upload">
       <span class="doc-icon">📤</span>
       <div class="doc-title">Upload File Kinerja Pegawai</div>
       <p class="doc-sub">Unggah dokumen kinerja individu pegawai secara periodik sesuai jadwal yang ditetapkan oleh Unit Kepatuhan Internal.</p>
       <div class="doc-link">Upload Sekarang →</div>
     </a>
-
+ 
     <a class="doc-card" href="#" id="dokumen">
       <span class="doc-icon">🗂️</span>
       <div class="doc-title">Dokumen Kinerja 2025</div>
       <p class="doc-sub">Arsip seluruh dokumen kinerja pegawai dan organisasi Tahun 2025 sebagai referensi dan bahan evaluasi tahunan.</p>
       <div class="doc-link">Lihat Arsip →</div>
     </a>
-
+ 
   </div>
 </div>
-
+ 
 <footer>
   <p>© 2025 KPPBC TMP C Teluk Nibung · Direktorat Jenderal Bea dan Cukai · Kementerian Keuangan RI</p>
 </footer>
-
+ 
 <script>
   const io = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -267,3 +267,4 @@
 </script>
 </body>
 </html>
+ 
