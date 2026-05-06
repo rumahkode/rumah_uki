@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dialog Kinerja dan Risiko Organisasi – Bea Cukai Teluk Nibung</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0a0e1a; --navy2: #111827; --gold: #c9a84c;
+    --gold2: #e8c96e; --white: #f8f5ee; --muted: rgba(248,245,238,0.55);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: 'Raleway', sans-serif; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem; height: 72px;
+    background: rgba(10,14,26,0.95); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo {
+    width: 40px; height: 40px; background: var(--gold); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 18px; color: var(--navy);
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); line-height: 1.3; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.25s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  .page-hero {
+    padding-top: 72px; min-height: 260px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #0a0e1a 0%, #111827 60%, #0d1620 100%);
+    text-align: center;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px);
+  }
+  .page-hero-content { position: relative; z-index: 2; padding: 3rem 2rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 1rem; }
+  .breadcrumb a { color: var(--gold); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; font-weight: 600; }
+  .breadcrumb span { color: var(--muted); font-size: 11px; }
+  .page-title { font-family: 'Cinzel', serif; font-size: clamp(24px, 3.5vw, 48px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.8rem; }
+  .page-divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem auto; }
+
+  /* SECTION */
+  .block { padding: 3rem 5rem; max-width: 1200px; margin: 0 auto; }
+  .block + .block { border-top: 1px solid rgba(201,168,76,0.08); }
+
+  .block-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    border-left: 2px solid var(--gold); padding-left: 12px;
+    margin-bottom: 1.8rem;
+  }
+
+  /* BTN ROWS */
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .action-btn {
+    padding: 11px 22px; background: var(--navy2);
+    border: 1px solid rgba(201,168,76,0.2); color: var(--white);
+    font-family: 'Raleway', sans-serif; font-size: 12px;
+    font-weight: 600; letter-spacing: 0.06em;
+    text-decoration: none; cursor: pointer;
+    transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .action-btn:hover {
+    background: var(--gold); color: var(--navy);
+    border-color: var(--gold); transform: translateY(-1px);
+  }
+
+  /* MONTHS GRID */
+  .months-grid {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
+    margin-top: 0.5rem;
+  }
+  .month-btn {
+    padding: 10px 8px; text-align: center;
+    background: var(--navy2); border: 1px solid rgba(201,168,76,0.15);
+    color: var(--muted); font-family: 'Raleway', sans-serif;
+    font-size: 12px; font-weight: 600; text-decoration: none;
+    cursor: pointer; transition: all 0.25s; display: block;
+  }
+  .month-btn:hover {
+    background: var(--gold); color: var(--navy);
+    border-color: var(--gold); transform: translateY(-1px);
+  }
+  .month-btn.active {
+    background: rgba(201,168,76,0.15); border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* UNIT CARDS */
+  .units-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    border-left: 2px solid var(--gold); padding-left: 12px;
+    margin-bottom: 2rem;
+  }
+  .units-desc {
+    font-size: 13px; font-weight: 300; color: var(--muted);
+    line-height: 1.7; margin-bottom: 2rem;
+  }
+
+  .units-grid {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+
+  .unit-card {
+    background: var(--navy2);
+    display: grid; grid-template-columns: 120px 1fr;
+    align-items: center; overflow: hidden;
+    position: relative; transition: background 0.3s;
+  }
+  .unit-card:hover { background: #161d2e; }
+  .unit-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--gold); transform: scaleY(0); transform-origin: top; transition: transform 0.3s;
+  }
+  .unit-card:hover::before { transform: scaleY(1); }
+
+  .unit-emblem {
+    width: 120px; height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(201,168,76,0.05); font-size: 52px;
+  }
+
+  .unit-body { padding: 1.5rem 2rem; }
+  .unit-name {
+    font-family: 'Cinzel', serif; font-size: 14px; font-weight: 700;
+    color: var(--white); margin-bottom: 1rem; line-height: 1.4;
+  }
+  .unit-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .unit-btn {
+    padding: 8px 18px; background: var(--gold); color: var(--navy);
+    font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-decoration: none;
+    transition: background 0.25s;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+  }
+  .unit-btn:hover { background: var(--gold2); }
+  .unit-btn.secondary {
+    background: transparent; color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    clip-path: none;
+  }
+  .unit-btn.secondary:hover { background: rgba(201,168,76,0.1); }
+
+  footer { background: #060810; border-top: 1px solid rgba(201,168,76,0.12); padding: 2rem 4rem; text-align: center; }
+  footer p { font-size: 11px; color: rgba(248,245,238,0.25); letter-spacing: 0.08em; }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="bea-cukai-nibung.html">
+    <div class="nav-logo">BC</div>
+    <div class="nav-title">Bea Cukai<br>Teluk Nibung</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="bea-cukai-nibung.html">Beranda</a></li>
+    <li><a href="lhk.html">Laporan Harta Kekayaan</a></li>
+    <li><a href="pengelolaan-kinerja.html">Pengelolaan Kinerja</a></li>
+    <li><a href="dialog-kinerja.html" class="active">Dialog Kinerja Organisasi</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="bea-cukai-nibung.html">Beranda</a>
+      <span>/</span>
+      <span style="color:var(--white)">Dialog Kinerja Organisasi</span>
+    </div>
+    <h1 class="page-title">Dialog Kinerja dan<br>Risiko Organisasi</h1>
+    <div class="page-divider"></div>
+  </div>
+</div>
+
+<!-- BLOCK 1: DOKUMEN UTAMA -->
+<div class="block fade-in">
+  <div class="block-label">Dokumen Dialog Kinerja</div>
+  <div class="btn-row">
+    <a href="#" class="action-btn">📊 Executive Summary</a>
+    <a href="#" class="action-btn">📄 LRK</a>
+    <a href="#" class="action-btn">📑 LRK Gabungan</a>
+    <a href="#" class="action-btn">🗄️ DB</a>
+    <a href="#" class="action-btn">📋 Bahan CKO Satker</a>
+    <a href="#" class="action-btn">🔍 Pembacaan Tata Kelola Unit Kerja</a>
+  </div>
+</div>
+
+<!-- BLOCK 2: UPLOAD BULANAN -->
+<div class="block fade-in">
+  <div class="block-label">Upload Dokumen LIRK dan Dokumen Pendukung Masing-Masing Unit</div>
+  <div class="months-grid">
+    <a href="#" class="month-btn">Januari</a>
+    <a href="#" class="month-btn">Februari</a>
+    <a href="#" class="month-btn active">Maret</a>
+    <a href="#" class="month-btn">April</a>
+    <a href="#" class="month-btn active">Mei</a>
+    <a href="#" class="month-btn">Juni</a>
+    <a href="#" class="month-btn">Juli</a>
+    <a href="#" class="month-btn">Agustus</a>
+    <a href="#" class="month-btn">September</a>
+    <a href="#" class="month-btn">Oktober</a>
+    <a href="#" class="month-btn">November</a>
+    <a href="#" class="month-btn">Desember</a>
+  </div>
+</div>
+
+<!-- BLOCK 3: UNIT KERJA -->
+<div class="block fade-in" style="padding-bottom: 5rem;">
+  <div class="units-label">Dokumen Kinerja Per Unit Kerja</div>
+  <p class="units-desc">Akses dokumen LIRK dan Laporan Capaian Kinerja masing-masing unit di lingkungan KPPBC TMP C Teluk Nibung.</p>
+
+  <div class="units-grid">
+
+    <div class="unit-card">
+      <div class="unit-emblem">🏛️</div>
+      <div class="unit-body">
+        <div class="unit-name">Subbagian Umum</div>
+        <div class="unit-btns">
+          <a href="#" class="unit-btn">LIRK</a>
+          <a href="#" class="unit-btn secondary">Laporan Capaian Kinerja</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-emblem">🔍</div>
+      <div class="unit-body">
+        <div class="unit-name">Seksi Penindakan dan Penyidikan</div>
+        <div class="unit-btns">
+          <a href="#" class="unit-btn">LIRK</a>
+          <a href="#" class="unit-btn secondary">LCK</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-emblem">💰</div>
+      <div class="unit-body">
+        <div class="unit-name">Seksi Perbendaharaan</div>
+        <div class="unit-btns">
+          <a href="#" class="unit-btn">LIRK</a>
+          <a href="#" class="unit-btn secondary">LCK</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-emblem">🚢</div>
+      <div class="unit-body">
+        <div class="unit-name">Seksi Pelayanan Kepabeanan dan Cukai dan Dukungan Teknis</div>
+        <div class="unit-btns">
+          <a href="#" class="unit-btn">LIRK</a>
+          <a href="#" class="unit-btn secondary">LCK</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unit-card">
+      <div class="unit-emblem">🛡️</div>
+      <div class="unit-body">
+        <div class="unit-name">Seksi Kepatuhan Internal dan Penyuluhan</div>
+        <div class="unit-btns">
+          <a href="#" class="unit-btn">LIRK</a>
+          <a href="#" class="unit-btn secondary">LCK</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 KPPBC TMP C Teluk Nibung · Direktorat Jenderal Bea dan Cukai · Kementerian Keuangan RI</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 120);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

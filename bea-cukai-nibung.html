@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Kepatuhan Internal – Bea Cukai Teluk Nibung</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0a0e1a;
+    --navy2: #111827;
+    --gold: #c9a84c;
+    --gold2: #e8c96e;
+    --gold-light: #f5e4b0;
+    --white: #f8f5ee;
+    --muted: rgba(248,245,238,0.55);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem;
+    height: 72px;
+    background: rgba(10,14,26,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .nav-logo {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 900; font-size: 18px;
+    color: var(--navy);
+  }
+  .nav-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px; font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    line-height: 1.3;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 8rem;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0a0e1a 0%, #111827 50%, #0d1620 100%);
+  }
+
+  /* Diagonal geometric lines */
+  .hero-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    overflow: hidden;
+  }
+  .hero-lines::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -5%;
+    width: 60%; height: 140%;
+    background: repeating-linear-gradient(
+      -55deg,
+      transparent,
+      transparent 40px,
+      rgba(201,168,76,0.04) 40px,
+      rgba(201,168,76,0.04) 41px
+    );
+  }
+  .hero-lines::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 45%; height: 100%;
+    background: linear-gradient(135deg, transparent 60%, rgba(201,168,76,0.06) 100%);
+    clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Big decorative shape */
+  .hero-shape {
+    position: absolute;
+    right: 6%;
+    top: 50%; transform: translateY(-50%);
+    width: 420px; height: 420px;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-shape::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(201,168,76,0.1);
+    border-radius: 50%;
+  }
+  .hero-shape::after {
+    content: '';
+    position: absolute;
+    inset: 80px;
+    border: 1px solid rgba(201,168,76,0.08);
+    border-radius: 50%;
+  }
+
+  /* Corner geometric accent */
+  .hero-corner {
+    position: absolute;
+    top: 72px; right: 0;
+    width: 420px; height: 420px;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 700px;
+    animation: fadeUp 1s ease both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 36px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+  .hero-title span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 14px; font-weight: 300;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 2.5rem;
+  }
+
+  .hero-divider {
+    width: 60px; height: 2px;
+    background: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-desc {
+    font-size: 16px; font-weight: 300; line-height: 1.85;
+    color: rgba(248,245,238,0.7);
+    max-width: 520px; margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex; gap: 1.2rem; flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 14px 34px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+  }
+  .btn-primary:hover {
+    background: var(--gold2);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    padding: 13px 34px;
+    background: transparent;
+    color: var(--gold);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(201,168,76,0.45);
+    cursor: pointer;
+    transition: border-color 0.25s, color 0.25s, transform 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold2);
+    transform: translateY(-2px);
+  }
+
+  /* scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); z-index: 2;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .scroll-hint::after {
+    content: '';
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: drip 2.5s ease-in-out infinite;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats-strip {
+    background: var(--gold);
+    padding: 0;
+  }
+  .stats-inner {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .stat-item {
+    padding: 2.4rem 2rem;
+    text-align: center;
+    border-right: 1px solid rgba(10,14,26,0.12);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cinzel', serif;
+    font-size: 38px; font-weight: 900;
+    color: var(--navy);
+    display: block; line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(10,14,26,0.65);
+  }
+
+  /* ── SECTION BASE ── */
+  section { padding: 7rem 8rem; max-width: 1400px; margin: 0 auto; }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+    border-left: 2px solid var(--gold);
+    padding-left: 12px; margin-bottom: 1.2rem;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700; line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 15px; font-weight: 300; line-height: 1.8;
+    color: var(--muted);
+    max-width: 540px;
+  }
+
+  /* ── MENU CARDS ── */
+  .cards-section { padding-bottom: 6rem; }
+
+  .cards-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+  }
+
+  .card {
+    background: var(--navy2);
+    padding: 2.5rem 2rem;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none; color: inherit;
+    display: block;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .card:hover { background: #161d2e; }
+  .card:hover::before { transform: scaleX(1); }
+
+  .card-num {
+    font-family: 'Cinzel', serif;
+    font-size: 54px; font-weight: 900;
+    color: rgba(201,168,76,0.08);
+    line-height: 1; margin-bottom: 1rem;
+    transition: color 0.3s;
+  }
+  .card:hover .card-num { color: rgba(201,168,76,0.16); }
+
+  .card-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.4rem;
+    transition: background 0.3s;
+    font-size: 22px;
+  }
+  .card:hover .card-icon { background: rgba(201,168,76,0.18); }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 14px; font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem; line-height: 1.4;
+  }
+
+  .card-desc {
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .card-arrow {
+    position: absolute; bottom: 1.5rem; right: 1.5rem;
+    width: 28px; height: 28px;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 14px;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .card:hover .card-arrow {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ── ABOUT / INFO ── */
+  .about-section {
+    padding: 7rem 8rem;
+    background: linear-gradient(135deg, #0d1320 0%, #0a0e1a 100%);
+    border-top: 1px solid rgba(201,168,76,0.1);
+    border-bottom: 1px solid rgba(201,168,76,0.1);
+  }
+  .about-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-box {
+    background: var(--navy2);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 3rem;
+    position: relative;
+  }
+  .about-box::before {
+    content: '';
+    position: absolute;
+    top: -12px; right: -12px;
+    bottom: 12px; left: 12px;
+    border: 1px solid rgba(201,168,76,0.08);
+    pointer-events: none;
+  }
+
+  .about-box-label {
+    font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.5rem;
+  }
+
+  .pillar-list {
+    list-style: none; display: flex; flex-direction: column; gap: 1rem;
+  }
+  .pillar-item {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .pillar-dot {
+    width: 8px; height: 8px; min-width: 8px;
+    background: var(--gold); border-radius: 50%;
+    margin-top: 6px;
+  }
+  .pillar-text {
+    font-size: 14px; font-weight: 600; color: var(--white);
+  }
+  .pillar-sub {
+    font-size: 12px; font-weight: 300; color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── BERITA / NEWS ── */
+  .news-section { padding: 7rem 8rem; }
+  .news-inner { max-width: 1200px; margin: 0 auto; }
+
+  .news-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1.5px;
+  }
+
+  .news-card {
+    background: var(--navy2);
+    padding: 2.5rem;
+    position: relative; overflow: hidden;
+    cursor: pointer; transition: background 0.3s;
+  }
+  .news-card:hover { background: #161d2e; }
+
+  .news-card.featured {
+    grid-row: span 2;
+  }
+  .news-card.featured .news-title {
+    font-size: 20px;
+  }
+
+  .news-tag {
+    display: inline-block;
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 4px 10px; margin-bottom: 1.2rem;
+  }
+
+  .news-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px; font-weight: 700;
+    color: var(--white); line-height: 1.4;
+    margin-bottom: 0.8rem;
+  }
+
+  .news-excerpt {
+    font-size: 13px; font-weight: 300; line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .news-date {
+    position: absolute; bottom: 1.5rem; right: 1.5rem;
+    font-size: 10px; letter-spacing: 0.12em;
+    color: rgba(248,245,238,0.3);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060810;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    padding: 4rem 8rem;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem;
+  }
+  .footer-brand .nav-title { font-size: 15px; margin-top: 0.5rem; }
+  .footer-brand p {
+    font-size: 13px; font-weight: 300; line-height: 1.8;
+    color: var(--muted); margin-top: 1rem; max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.4rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li {
+    font-size: 13px; font-weight: 300; color: var(--muted);
+    padding: 5px 0; cursor: pointer;
+    transition: color 0.2s;
+  }
+  .footer-col li:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1200px; margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p {
+    font-size: 11px; color: rgba(248,245,238,0.25); letter-spacing: 0.08em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.9; }
+  }
+  @keyframes drip {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+    100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo">BC</div>
+    <div class="nav-title">Bea Cukai<br>Teluk Nibung</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#beranda">Beranda</a></li>
+    <li><a href="#layanan">Layanan</a></li>
+    <li><a href="#tentang">Tentang Kami</a></li>
+    <li><a href="#informasi">Informasi</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero" id="beranda">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+
+  <!-- decorative circles -->
+  <div class="hero-shape"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Direktorat Jenderal Bea dan Cukai</div>
+    <h1 class="hero-title">
+      Unit Kepatuhan
+      <span>Internal</span>
+    </h1>
+    <div class="hero-sub">Bea Cukai Teluk Nibung · KPPBC TMP C</div>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Mewujudkan tata kelola pemerintahan yang bersih, transparan, dan akuntabel
+      melalui pengawasan internal yang profesional dan berintegritas.
+    </p>
+    <div class="hero-cta">
+      <a href="#layanan" class="btn-primary">Lihat Layanan</a>
+      <a href="#tentang" class="btn-outline">Pelajari Lebih</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Gulir</div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Komitmen Integritas</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Program Unggulan</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">KPPBC</span>
+      <span class="stat-label">TMP Tipe C</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">2025</span>
+      <span class="stat-label">Periode Aktif</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── LAYANAN / MENU CARDS ── -->
+<div id="layanan" style="background: var(--navy); padding: 0 0 0;">
+  <section class="cards-section">
+    <div class="cards-header fade-in">
+      <div>
+        <div class="section-tag">Menu Utama</div>
+        <h2 class="section-title">Layanan Kami</h2>
+      </div>
+      <p class="section-sub">
+        Seluruh layanan kepatuhan internal tersedia secara transparan dan dapat diakses dengan mudah.
+      </p>
+    </div>
+
+    <div class="cards-grid fade-in">
+
+      <a class="card" href="bea-cukai-nibung.html">
+        <div class="card-num">01</div>
+        <div class="card-icon">🏠</div>
+        <div class="card-title">Beranda</div>
+        <p class="card-desc">Halaman utama portal informasi Unit Kepatuhan Internal KPPBC TMP C Teluk Nibung.</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="card" href="lhk.html">
+        <div class="card-num">02</div>
+        <div class="card-icon">📋</div>
+        <div class="card-title">Laporan Harta Kekayaan</div>
+        <p class="card-desc">Pelaporan dan pemantauan harta kekayaan pegawai (LHKPN & LHKASN) secara berkala.</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="card" href="pengelolaan-kinerja.html">
+        <div class="card-num">03</div>
+        <div class="card-icon">📊</div>
+        <div class="card-title">Pengelolaan Kinerja</div>
+        <p class="card-desc">Sistem pengelolaan dan evaluasi kinerja pegawai sesuai standar Kementerian Keuangan.</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+      <a class="card" href="dialog-kinerja.html">
+        <div class="card-num">04</div>
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Dialog Kinerja Organisasi</div>
+        <p class="card-desc">Forum dialog dan koordinasi kinerja organisasi untuk peningkatan tata kelola berkelanjutan.</p>
+        <div class="card-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+</div>
+
+<!-- ── ABOUT ── -->
+<div class="about-section" id="tentang">
+  <div class="about-inner">
+    <div class="fade-in">
+      <div class="section-tag">Tentang Kami</div>
+      <h2 class="section-title">Pilar Kepatuhan Internal</h2>
+      <p class="section-sub" style="margin-bottom: 2.5rem;">
+        Unit Kepatuhan Internal hadir sebagai garda terdepan dalam memastikan seluruh
+        jajaran KPPBC TMP C Teluk Nibung menjalankan tugas sesuai dengan peraturan,
+        etika, dan nilai integritas.
+      </p>
+      <a href="#" class="btn-outline">Profil Lengkap →</a>
+    </div>
+
+    <div class="about-visual fade-in">
+      <div class="about-box">
+        <div class="about-box-label">Fokus Utama Unit Kepatuhan Internal</div>
+        <ul class="pillar-list">
+          <li class="pillar-item">
+            <div class="pillar-dot"></div>
+            <div>
+              <div class="pillar-text">Pengawasan & Pengendalian</div>
+              <div class="pillar-sub">Monitoring kepatuhan regulasi dan SOP</div>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <div class="pillar-dot"></div>
+            <div>
+              <div class="pillar-text">Pelaporan LHKPN / LHKASN</div>
+              <div class="pillar-sub">Transparansi harta kekayaan aparatur negara</div>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <div class="pillar-dot"></div>
+            <div>
+              <div class="pillar-text">Manajemen Kinerja</div>
+              <div class="pillar-sub">Evaluasi dan dialog kinerja berbasis data</div>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <div class="pillar-dot"></div>
+            <div>
+              <div class="pillar-text">Budaya Antikorupsi</div>
+              <div class="pillar-sub">Internalisasi nilai Kemenkeu dan DJBC</div>
+            </div>
+          </li>
+          <li class="pillar-item">
+            <div class="pillar-dot"></div>
+            <div>
+              <div class="pillar-text">Penanganan Pengaduan</div>
+              <div class="pillar-sub">Saluran whistleblowing yang aman dan terpercaya</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NEWS / INFORMASI ── -->
+<div id="informasi" style="background: var(--navy);">
+  <section class="news-section">
+    <div class="news-inner">
+      <div class="news-header fade-in">
+        <div>
+          <div class="section-tag">Informasi Terkini</div>
+          <h2 class="section-title">Berita & Pengumuman</h2>
+        </div>
+        <a href="#" class="btn-outline" style="white-space: nowrap">Lihat Semua →</a>
+      </div>
+
+      <div class="news-grid fade-in">
+        <div class="news-card featured">
+          <div class="news-tag">Unggulan</div>
+          <div class="news-title">Pengelolaan Kinerja Pegawai Kementerian Keuangan 2025 – Panduan Lengkap</div>
+          <p class="news-excerpt" style="margin-top:1rem;">
+            Direktorat Jenderal Bea dan Cukai terus berkomitmen meningkatkan kualitas pengelolaan kinerja
+            seluruh pegawai dengan sistem evaluasi yang terstruktur, transparan, dan berbasis capaian nyata.
+            Panduan terbaru ini mencakup sasaran kinerja, evaluasi periodik, dan mekanisme dialog kinerja.
+          </p>
+          <div class="news-date">Mei 2025</div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-tag">LHKPN</div>
+          <div class="news-title">Batas Waktu Laporan LHKPN Periode 2025</div>
+          <p class="news-excerpt">Seluruh wajib lapor LHKPN diminta segera melengkapi pelaporan melalui elhkpn.kpk.go.id.</p>
+          <div class="news-date">Apr 2025</div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-tag">Dialog Kinerja</div>
+          <div class="news-title">Jadwal Dialog Kinerja Organisasi Triwulan II</div>
+          <p class="news-excerpt">Dialog kinerja triwulanan akan dilaksanakan pada akhir bulan Mei 2025 bersama seluruh unit.</p>
+          <div class="news-date">Mei 2025</div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-tag">Integritas</div>
+          <div class="news-title">Sosialisasi Nilai-Nilai Antikorupsi di Lingkungan KPPBC</div>
+          <p class="news-excerpt">Kegiatan internalisasi nilai dan budaya antikorupsi bagi seluruh pegawai dijadwalkan berlangsung.</p>
+          <div class="news-date">Apr 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-brand">
+        <div class="nav-logo">BC</div>
+        <div class="nav-title">Bea Cukai<br>Teluk Nibung</div>
+      </div>
+      <p>Unit Kepatuhan Internal KPPBC TMP C Teluk Nibung, Direktorat Jenderal Bea dan Cukai, Kementerian Keuangan Republik Indonesia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li>Beranda</li>
+        <li>Laporan Harta Kekayaan</li>
+        <li>Pengelolaan Kinerja</li>
+        <li>Dialog Kinerja Organisasi</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Tautan Terkait</h4>
+      <ul>
+        <li>beacukai.go.id</li>
+        <li>kemenkeu.go.id</li>
+        <li>elhkpn.kpk.go.id</li>
+        <li>span.kemenkeu.go.id</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 KPPBC TMP C Teluk Nibung · Direktorat Jenderal Bea dan Cukai</p>
+    <p>Kementerian Keuangan Republik Indonesia</p>
+  </div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 120);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // Smooth active nav link highlight
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#'+cur
+        ? 'var(--gold)'
+        : '';
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LHK Periode Laporan 2025 – Bea Cukai Teluk Nibung</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0a0e1a; --navy2: #111827; --gold: #c9a84c;
+    --gold2: #e8c96e; --white: #f8f5ee; --muted: rgba(248,245,238,0.55);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--navy); color: var(--white); font-family: 'Raleway', sans-serif; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4rem; height: 72px;
+    background: rgba(10,14,26,0.95); backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo {
+    width: 40px; height: 40px; background: var(--gold); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-weight: 900; font-size: 18px; color: var(--navy);
+  }
+  .nav-title { font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: var(--gold); line-height: 1.3; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.25s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding-top: 72px; min-height: 260px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #0a0e1a 0%, #111827 60%, #0d1620 100%);
+    text-align: center;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(-55deg, transparent, transparent 40px, rgba(201,168,76,0.03) 40px, rgba(201,168,76,0.03) 41px);
+  }
+  .page-hero-content { position: relative; z-index: 2; padding: 3rem 2rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 1rem; }
+  .breadcrumb a { color: var(--gold); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; font-weight: 600; }
+  .breadcrumb span { color: var(--muted); font-size: 11px; }
+  .page-title { font-family: 'Cinzel', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 0.8rem; }
+  .page-divider { width: 60px; height: 2px; background: var(--gold); margin: 1rem auto; }
+  .page-subtitle { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); font-weight: 300; }
+
+  /* SECTION LABEL */
+  .section-label {
+    text-align: center; padding: 3rem 4rem 2rem;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold);
+  }
+
+  /* STEPS LIST */
+  .steps-container {
+    max-width: 900px; margin: 0 auto; padding: 0 4rem 6rem;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+
+  .step-card {
+    background: var(--navy2);
+    display: grid; grid-template-columns: 200px 1fr;
+    align-items: center; overflow: hidden;
+    position: relative; transition: background 0.3s;
+  }
+  .step-card:hover { background: #161d2e; }
+  .step-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: var(--gold);
+    transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
+  }
+  .step-card:hover::before { transform: scaleY(1); }
+
+  .step-img {
+    width: 200px; height: 130px; object-fit: cover;
+    background: rgba(201,168,76,0.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .step-body { padding: 2rem 2.5rem; }
+
+  .step-num {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+  }
+
+  .step-title { font-family: 'Cinzel', serif; font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 1.2rem; }
+
+  .step-btn {
+    display: inline-block; padding: 10px 28px;
+    background: var(--gold); color: var(--navy);
+    font-family: 'Raleway', sans-serif; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+  .step-btn:hover { background: var(--gold2); transform: translateY(-1px); }
+
+  /* THANK YOU STRIP */
+  .thankyou {
+    text-align: center; padding: 2.5rem;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    border-top: 1px solid rgba(201,168,76,0.15);
+    max-width: 900px; margin: 0 auto;
+  }
+
+  footer {
+    background: #060810; border-top: 1px solid rgba(201,168,76,0.12);
+    padding: 2rem 4rem; text-align: center;
+  }
+  footer p { font-size: 11px; color: rgba(248,245,238,0.25); letter-spacing: 0.08em; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="bea-cukai-nibung.html">
+    <div class="nav-logo">BC</div>
+    <div class="nav-title">Bea Cukai<br>Teluk Nibung</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="bea-cukai-nibung.html">Beranda</a></li>
+    <li><a href="lhk.html" class="active">Laporan Harta Kekayaan</a></li>
+    <li><a href="pengelolaan-kinerja.html">Pengelolaan Kinerja</a></li>
+    <li><a href="dialog-kinerja.html">Dialog Kinerja Organisasi</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="bea-cukai-nibung.html">Beranda</a>
+      <span>/</span>
+      <span style="color:var(--white)">Laporan Harta Kekayaan</span>
+    </div>
+    <h1 class="page-title">LHK Periode Laporan<br>Tahun 2025</h1>
+    <div class="page-divider"></div>
+    <p class="page-subtitle">Langkah-Langkah Pelaporan Harta Kekayaan</p>
+  </div>
+</div>
+
+<div class="section-label">Langkah-Langkah Pelaporan Harta Kekayaan</div>
+
+<div class="steps-container">
+
+  <div class="step-card fade-in">
+    <div class="step-img">🖥️</div>
+    <div class="step-body">
+      <div class="step-num">Langkah 01</div>
+      <div class="step-title">Pelaporan SPT di Coretax</div>
+      <p class="step-desc">Pelaporan LHKPN bagi wajib lapor LHKPN melalui sistem Coretax Direktorat Jenderal Pajak.</p>
+      <a href="https://coretax.pajak.go.id" target="_blank" class="step-btn">Coretax →</a>
+    </div>
+  </div>
+
+  <div class="step-card fade-in">
+    <div class="step-img">📋</div>
+    <div class="step-body">
+      <div class="step-num">Langkah 02</div>
+      <div class="step-title">Pelaporan LHKPN</div>
+      <p class="step-desc">Pelaporan LHKPN bagi wajib lapor LHKPN melalui sistem e-LHKPN Komisi Pemberantasan Korupsi.</p>
+      <a href="https://elhkpn.kpk.go.id" target="_blank" class="step-btn">LHKPN →</a>
+    </div>
+  </div>
+
+  <div class="step-card fade-in">
+    <div class="step-img">📊</div>
+    <div class="step-body">
+      <div class="step-num">Langkah 03</div>
+      <div class="step-title">Pelaporan LHK (ALPHA)</div>
+      <p class="step-desc">Bagi seluruh pegawai selain wajib lapor LHKPN. Laporkan Pajak Pribadi &amp; Harta Kekayaan Anda melalui sistem ALPHA.</p>
+      <a href="#" class="step-btn">Laporan Harta Kekayaan – Satu Kemenkeu →</a>
+    </div>
+  </div>
+
+  <div class="step-card fade-in">
+    <div class="step-img">📝</div>
+    <div class="step-body">
+      <div class="step-num">Langkah 04</div>
+      <div class="step-title">Penyampaian Bukti Lapor SPT</div>
+      <p class="step-desc">Seluruh pegawai wajib mengisi bukti lapor SPT. Unggah bukti pelaporan SPT tahunan melalui formulir yang tersedia.</p>
+      <a href="#" class="step-btn">Lapor SPT (Pusat) →</a>
+    </div>
+  </div>
+
+  <div class="step-card fade-in">
+    <div class="step-img">📤</div>
+    <div class="step-body">
+      <div class="step-num">Langkah 05</div>
+      <div class="step-title">Penyampaian Bukti Lapor LHK</div>
+      <p class="step-desc">Seluruh pegawai wajib mengisi bukti lapor SPT, LHKPN/LHK. Unggah dokumen bukti pelaporan harta kekayaan.</p>
+      <a href="#" class="step-btn">Lapor LHK Satker →</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="thankyou">
+  ✦ Terima Kasih Telah Melakukan Pelaporan Harta Kekayaan Periode Tahun 2025 ✦
+</div>
+
+<footer>
+  <p>© 2025 KPPBC TMP C Teluk Nibung · Direktorat Jenderal Bea dan Cukai · Kementerian Keuangan RI</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 100);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
