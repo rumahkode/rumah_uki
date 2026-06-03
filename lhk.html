@@ -47,8 +47,8 @@
   .nav-brand { display: flex; align-items: center; gap: 14px; }
   .nav-logo { width: 44px; height: 44px; border-radius: 18px; display: flex; align-items: center; justify-content: center; background: var(--primary); color: #fff; font-weight: 700; font-size: 1rem; }
   .nav-title { font-size: 0.88rem; font-weight: 700; letter-spacing: 0.1em; line-height: 1.2; color: var(--ink); }
-  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-  .nav-links a { color: var(--muted); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color .25s; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; white-space: nowrap; }
+  .nav-links a { color: var(--muted); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; transition: color .25s; white-space: nowrap; }
   .nav-links a:hover, .nav-links a.active { color: var(--primary); }
 
   .page-hero {
@@ -89,12 +89,12 @@
   .step-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 9999px; background: var(--primary); color: #fff; font-size: 0.88rem; font-weight: 700; transition: transform .2s ease, background .25s ease; }
   .step-btn:hover { background: var(--primary-active); transform: translateY(-1px); }
 
-  footer { background: var(--surface-card); border-top: 1px solid var(--border); padding: 3.5rem 2rem; }
+  footer { background: var(--surface-card); border-top: 1px solid var(--border); padding: 2.5rem 2rem; }
   .footer-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 1.75rem; }
   .footer-brand p { margin-top: 1rem; color: var(--muted); line-height: 1.8; }
   .footer-col h4 { margin-bottom: 1rem; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); font-weight: 700; }
   .footer-col li { font-size: 0.95rem; color: var(--muted); padding: 0.35rem 0; list-style: none; }
-  .footer-bottom { max-width: 1120px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; }
+  .footer-bottom { max-width: 1120px; margin: 1.5rem auto 0; padding-top: 1rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.82rem; flex-wrap: wrap; }
 
   @media (max-width: 860px) {
     .step-card { grid-template-columns: 1fr; }
@@ -127,20 +127,9 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-mobile-menu" id="mobileMenu">
-  <a href="index.html">Beranda</a>
-  <a href="lhk.html" class="active">Laporan Harta Kekayaan</a>
-  <a href="pengelolaan-kinerja.html">Pengelolaan Kinerja</a>
-  <a href="dialog-kinerja.html">Dialog Kinerja Organisasi</a>
-</div>
 
 <div class="page-hero">
   <div class="page-hero-content">
-    <div class="breadcrumb">
-      <a href="index.html">Beranda</a>
-      <span>/</span>
-      <span style="color:var(--white)">Laporan Harta Kekayaan</span>
-    </div>
     <h1 class="page-title">LHK Periode Laporan<br>Tahun 2025</h1>
     <div class="page-divider"></div>
     <p class="page-subtitle">Langkah-Langkah Pelaporan Harta Kekayaan</p>

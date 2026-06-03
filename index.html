@@ -325,7 +325,12 @@
   }
   .card:hover .card-arrow { transform: translateX(3px); }
 
-  .about-section { background: transparent; }
+  .about-section {
+    background: transparent;
+    padding: 5rem 3rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
   .about-inner {
     display: grid;
     grid-template-columns: 1fr 0.95fr;
@@ -418,7 +423,7 @@
   footer {
     background: var(--surface-card);
     border-top: 1px solid var(--border);
-    padding: 4rem 3rem;
+    padding: 2.5rem 2rem;
   }
   .footer-inner {
     max-width: var(--max-width);
@@ -450,8 +455,8 @@
   }
   .footer-bottom {
     max-width: var(--max-width);
-    margin: 2.5rem auto 0;
-    padding-top: 1.5rem;
+    margin: 1.5rem auto 0;
+    padding-top: 1rem;
     border-top: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
